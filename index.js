@@ -17,11 +17,17 @@ const sayData = (req, res) => {
 app.get("/", sayData);
 
 app.get("/residences/:id", (req, res) => {
-  const residencesId = req.params.id;
-  const residence = data.find((elemn) => elemn.Id === residencesId);
+  const residencesId = parseInt(req.params.id);
+  const residence = data.find((elem) => elem.Id === residencesId);
   console.info(residence);
 
   res.json(residence);
+});
+
+app.get("/destinationchoisie/:id", (req, res) => {
+  const destinationId = parseInt(req.params.id);
+  const destination = data.find((elem) => elem.Id === destinationId);
+  res.json(destination);
 });
 
 const port = 3310;
