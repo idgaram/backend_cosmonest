@@ -16,13 +16,17 @@ const sayData = (req, res) => {
 
 app.get("/", sayData);
 
-app.get("/residences/:id", (req, res) => {
+app.get("/residence/:id", (req, res) => {
   const residencesId = parseInt(req.params.id);
   const residence = data.find((elem) => elem.Id === residencesId);
-  console.info(residence);
-
   res.json(residence);
 });
+
+// app.get("/destinations/:urlPlanet", (req, res) => {
+//   const planetResidences = req.params.id;
+//   const residence = data.find((elem) => elem.Id === planetResidences);
+//   res.json(residence);
+// });
 
 app.get("/destinationchoisie/:id", (req, res) => {
   const destinationId = parseInt(req.params.id);
